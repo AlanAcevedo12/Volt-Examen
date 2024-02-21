@@ -8,11 +8,6 @@ export default function Home({ navigation }) {
                 <Text style={styles.MainTitle}>
                     Home
                 </Text>
-                <Button
-                    title="Go Dog"
-                    onPress={() =>
-                        navigation.navigate("Dog")
-                    } />
             </View>
         </View >
     )

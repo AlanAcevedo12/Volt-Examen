@@ -1,9 +1,9 @@
 import { Button, Image, Text, View } from "react-native";
-import { styles } from "./DogStyles";
+import { styles } from "./NewspaperStyles";
 import { useEffect, useState } from "react";
 import axios from "axios";
 
-export default function Dog({ navigation }) {
+export default function Newspaper({ navigation }) {
     const API_URL = "https://dog.ceo/api/breeds/image/random";
     const [imageURL, setImageURL] = useState();
     const [loading, setLoading] = useState(true);
@@ -28,14 +28,9 @@ export default function Dog({ navigation }) {
         <View style={styles.DogContainer}>
             <View style={styles.MainTitleContainers}>
                 <Text style={styles.MainTitle}>
-                    Dog
+                    Newspaper
                 </Text>
             </View>
-            <Button
-                title="Go Home"
-                onPress={() =>
-                    navigation.navigate("Home")
-                } />
             {
                 !loading &&
                 <>
