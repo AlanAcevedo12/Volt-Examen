@@ -1,6 +1,6 @@
 # Examen Volt
 
-**Objectivo:**
+**Objetivo:**
 
 **Realizar una aplicación en React Native con:**
 
