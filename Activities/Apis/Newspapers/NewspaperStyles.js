@@ -1,7 +1,7 @@
 import { StyleSheet } from "react-native";
 
 const styles = StyleSheet.create({
-    DogContainer: {
+    NewspaperContainer: {
         backgroundColor: "white",
         width: "100%",
         height: "100%",
@@ -14,13 +14,17 @@ const styles = StyleSheet.create({
         alignItems: "center"
     },
     MainTitle: {
-        // backgroundColor: "green",
-        // height: "10%",
         fontSize: 40,
         fontFamily: "Montserrat-VariableFont_wght",
         fontWeight: "bold",
         color: "#131517"
-    }
+    },
+    cardsContainer: {
+        // backgroundColor: "blue",
+        width: "100%",
+        display: "flex",
+        flexDirection: "column",
+    },
 })
 
 export { styles };
