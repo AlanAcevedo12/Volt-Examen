@@ -6,7 +6,7 @@ import Dog from './Activities/Apis/Dog/Dog';
 import MaterialCommunityIcons from 'react-native-vector-icons/FontAwesome5';
 import Pharmacy from './Activities/Apis/Pharmacy/Pharmacy';
 import Crypto from './Activities/Apis/Crypto/Crypto';
-import StackNewspaper from './Activities/Apis/Newspapers/Newspaper';
+import Newspaper from './Activities/Apis/Newspapers/Newspaper';
 
 const Tab = createBottomTabNavigator();
 
@@ -25,8 +25,8 @@ function App(): React.JSX.Element {
           }}
         />
         <Tab.Screen
-          name="StackNewspaper"
-          component={StackNewspaper}
+          name="Newspaper"
+          component={Newspaper}
           options={{
             headerShown: false,
             tabBarIcon: ({ color, size }) => (
