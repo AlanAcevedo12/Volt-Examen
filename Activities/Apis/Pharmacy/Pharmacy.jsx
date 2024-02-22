@@ -43,17 +43,20 @@ function PharmacyScreen({ navigation }) {
     }
 
     return (
-        <View style={styles.DogContainer}>
+        <View style={styles.PharmacyContainer}>
             <View style={styles.MainTitleContainers}>
                 <Text style={styles.MainTitle}>
-                    Pharmacy
+                    PHARMACY
                 </Text>
             </View>
-            <FlatList
-                data={data}
-                renderItem={({ item }) => <PharmacyCard data={item} navigation={navigation} />}
-                kyExtractor={item => item.id}
-            />
+            <View style={styles.cardsContainer}>
+                <FlatList
+                    style={styles.list}
+                    data={data}
+                    renderItem={({ item }) => <PharmacyCard data={item} navigation={navigation} />}
+                    kyExtractor={item => item.id}
+                />
+            </View>
         </View>
     )
 }

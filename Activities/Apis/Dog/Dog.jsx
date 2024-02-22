@@ -7,6 +7,7 @@ export default function Dog({ navigation }) {
     const API_URL = "https://dog.ceo/api/breeds/image/random";
     const [imageURL, setImageURL] = useState();
     const [loading, setLoading] = useState(true);
+    const [isSelected, setIsSelected] = useState(false);
 
     useEffect(() => {
         fetchImage();
@@ -34,14 +35,27 @@ export default function Dog({ navigation }) {
             {
                 !loading &&
                 <>
-                    <Image source={{ uri: imageURL }}
-                        style={{ height: "50%" }}
-                    />
-                    <Button
+                    <View style={styles.imageContainer}>
+                        <Image source={{ uri: imageURL }}
+                            style={styles.image}
+                        />
+                    </View>
+                    <View style={styles.buttonContainer}>
+                        <View
+                            style={isSelected ? styles.buttonSelected : styles.button}
+                            onTouchEnd={() => { fetchImage(); setIsSelected(false) }}
+                            onTouchStart={() => setIsSelected(true)}
+                        >
+                            <Text style={isSelected ? styles.buttonTextSelected : styles.buttonText}>
+                                Generate Random Image
+                            </Text>
+                        </View>
+                    </View>
+                    {/* <Button
                         title="Random Image"
                         onPress={() =>
                             fetchImage()
-                        } />
+                        } /> */}
                 </>
             }
         </View>

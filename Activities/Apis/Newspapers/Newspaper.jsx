@@ -46,14 +46,18 @@ function NewspaperScreen({ navigation }) {
         <View style={styles.NewspaperContainer}>
             <View style={styles.MainTitleContainers}>
                 <Text style={styles.MainTitle}>
-                    Newspaper
+                    NEWSPAPER
                 </Text>
             </View>
-            <FlatList
-                data={data}
-                renderItem={({ item }) => <NewspaperCard data={item} navigation={navigation} />}
-                kyExtractor={item => item.id}
-            />
+            <View style={styles.cardsContainer}>
+                <FlatList
+                    style={styles.list}
+                    data={data}
+                    renderItem={({ item }) => <NewspaperCard data={item} navigation={navigation} />}
+                    kyExtractor={item => item.id}
+                />
+            </View>
+
             {/* <ScrollView style={styles.cardsContainer}>
                 {
                     !loading &&

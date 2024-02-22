@@ -5,13 +5,21 @@ export default function PharmacyCard({ data, navigation }) {
     console.log(data)
     return (
         <View style={styles.cardContainer}>
-            <Text style={styles.newspaperTitle}>
-                Title: {data.title}
-            </Text>
-            <Button
-                title="See More"
-                onPress={() => navigation.navigate('PharmacyDetails', { data: data })}
-            />
+            <View style={styles.textContainer}>
+                <Text style={styles.pharmacyTitle}>
+                    {data.title}
+                </Text>
+            </View>
+            <View style={styles.buttonContainer}>
+                <View
+                    style={styles.button}
+                    onTouchEnd={() => navigation.navigate('PharmacyDetails', { data: data })}
+                >
+                    <Text style={styles.buttonText}>
+                        More
+                    </Text>
+                </View>
+            </View>
         </View>
     )
 }

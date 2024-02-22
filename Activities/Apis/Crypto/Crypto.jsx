@@ -7,7 +7,6 @@ import CryptoCard from "../../../components/CryptoCard/CryptoCard";
 export default function Crypto({ navigation }) {
     const API_URL = "https://api.wazirx.com/sapi/v1/tickers/24hr";
     const [data, setData] = useState();
-    const [loading, setLoading] = useState(true);
 
     useEffect(() => {
         fetchData();
@@ -17,8 +16,7 @@ export default function Crypto({ navigation }) {
         try {
             let { data } = await axios.get(API_URL);
             if (data) {
-                setData( data.map((d, k) => { return ({ ...d, id: k }) })); //Agrego un ID a cada elemento para luego renderizarlo
-                setLoading(false);
+                setData(data.map((d, k) => { return ({ ...d, id: k }) })); //Agrego un ID a cada elemento para luego renderizarlo
             }
         } catch (e) {
             console.error(e);
@@ -26,29 +24,20 @@ export default function Crypto({ navigation }) {
     }
 
     return (
-        <View style={styles.DogContainer}>
+        <View style={styles.CryptoContainer}>
             <View style={styles.MainTitleContainers}>
                 <Text style={styles.MainTitle}>
-                    Crypto
+                    CRYPTO
                 </Text>
             </View>
-            <FlatList
-                data={data}
-                renderItem={({ item }) => <CryptoCard data={item} />}
-                kyExtractor={item => item.id}
-            />
-            {/* <ScrollView>
-                {
-                    !loading &&
-                    (
-                        data?.map((value, k) => {
-                            return (
-                                <CryptoCard data={value} key={k} />
-                            )
-                        })
-                    )
-                }
-            </ScrollView> */}
+            <View style={styles.cardsContainer}>
+                <FlatList
+                    style={styles.list}
+                    data={data}
+                    renderItem={({ item }) => <CryptoCard data={item} />}
+                    kyExtractor={item => item.id}
+                />
+            </View>
         </View>
     )
 }

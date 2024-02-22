@@ -5,21 +5,30 @@ export default function CryptoCard({ data, navigation }) {
     console.log(data)
     return (
         <View style={styles.cardContainer}>
-            <Text style={styles.cryptoTitle}>
-                Title: {data.baseAsset?.toUpperCase()}
-            </Text>
-            <Text style={styles.cryptoTitle}>
-                Last Price: {data.lastPrice}
-            </Text>
-            <Text style={styles.cryptoTitle}>
-                Low: {data.lowPrice}
-            </Text>
-            <Text style={styles.cryptoTitle}>
-                High: {data.highPrice}
-            </Text>
-            <Text style={styles.cryptoTitle}>
-                Volume: {data.volume}
-            </Text>
+            <View style={styles.titleContainer}>
+                <Text style={styles.cryptoTitle}>
+                    {data.baseAsset?.toUpperCase()}
+                </Text>
+            </View>
+            <View style={styles.textContainer}>
+                <Text style={styles.infoText}>
+                    Last: {data.lastPrice}
+                </Text>
+                <Text style={styles.infoText}>
+                    Low: {data.lowPrice}
+                </Text>
+                <Text style={styles.infoText}>
+                    High: {data.highPrice}
+                </Text>
+                <Text style={styles.infoText}>
+                    Volume: {data.volume}
+                </Text>
+            </View>
+            <View style={styles.symbolContainer}>
+                <Text style={styles.cryptoTitle}>
+                    {data.symbol?.toUpperCase()}
+                </Text>
+            </View>
         </View>
     )
 }
