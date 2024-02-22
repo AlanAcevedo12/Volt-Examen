@@ -1,5 +1,11 @@
 import { Button, Text, View } from "react-native";
 import { styles } from "./HomeStyles";
+import {
+    GoogleSignin,
+    statusCodes,
+} from '@react-native-google-signin/google-signin';
+
+GoogleSignin.configure();
 
 export default function Home({ navigation }) {
     return (
