@@ -20,6 +20,19 @@ const styles = StyleSheet.create({
         marginTop: 5,
         marginBottom: 5
     },
+    Loading: {
+        fontSize: 30,
+        fontFamily: "Montserrat-VariableFont_wght",
+        fontWeight: "bold",
+        color: "#2E4053",
+    },
+    LoadingContainer: {
+        width: "100%",
+        height: "100%",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+    },
     cardsContainer: {
         // backgroundColor: "blue",
         width: "100%",
@@ -27,7 +40,7 @@ const styles = StyleSheet.create({
         flexDirection: "column",
         alignItems: "center",
     },
-    list:{
+    list: {
         width: "97%",
     }
 })

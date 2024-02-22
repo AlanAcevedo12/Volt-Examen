@@ -30,7 +30,20 @@ const styles = StyleSheet.create({
     },
     list: {
         width: "97%",
-    }
+    },
+    Loading: {
+        fontSize: 30,
+        fontFamily: "Montserrat-VariableFont_wght",
+        fontWeight: "bold",
+        color: "#2E4053",
+    },
+    LoadingContainer: {
+        width: "100%",
+        height: "100%",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+    },
 })
 
 export { styles };

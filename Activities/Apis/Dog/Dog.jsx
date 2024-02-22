@@ -14,6 +14,7 @@ export default function Dog({ navigation }) {
     }, [navigation]);
 
     async function fetchImage() {
+        setLoading(true);
         try {
             let { data } = await axios.get(API_URL);
             if (data.message) {
@@ -33,31 +34,30 @@ export default function Dog({ navigation }) {
                 </Text>
             </View>
             {
-                !loading &&
-                <>
+                loading ?
+                    <View style={styles.LoadingContainer}>
+                        <Text style={styles.Loading}>
+                            Loading...
+                        </Text>
+                    </View>
+                    :
                     <View style={styles.imageContainer}>
                         <Image source={{ uri: imageURL }}
                             style={styles.image}
                         />
                     </View>
-                    <View style={styles.buttonContainer}>
-                        <View
-                            style={isSelected ? styles.buttonSelected : styles.button}
-                            onTouchEnd={() => { fetchImage(); setIsSelected(false) }}
-                            onTouchStart={() => setIsSelected(true)}
-                        >
-                            <Text style={isSelected ? styles.buttonTextSelected : styles.buttonText}>
-                                Generate Random Image
-                            </Text>
-                        </View>
-                    </View>
-                    {/* <Button
-                        title="Random Image"
-                        onPress={() =>
-                            fetchImage()
-                        } /> */}
-                </>
             }
+            <View style={styles.buttonContainer}>
+                <View
+                    style={isSelected ? styles.buttonSelected : styles.button}
+                    onTouchEnd={() => { fetchImage(); setIsSelected(false) }}
+                    onTouchStart={() => setIsSelected(true)}
+                >
+                    <Text style={isSelected ? styles.buttonTextSelected : styles.buttonText}>
+                        Generate Random Image
+                    </Text>
+                </View>
+            </View>
         </View>
     )
 }

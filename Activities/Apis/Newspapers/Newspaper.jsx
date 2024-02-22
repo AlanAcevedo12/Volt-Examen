@@ -49,14 +49,23 @@ function NewspaperScreen({ navigation }) {
                     NEWSPAPER
                 </Text>
             </View>
-            <View style={styles.cardsContainer}>
-                <FlatList
-                    style={styles.list}
-                    data={data}
-                    renderItem={({ item }) => <NewspaperCard data={item} navigation={navigation} />}
-                    kyExtractor={item => item.id}
-                />
-            </View>
+            {
+                loading ?
+                    <View style={styles.LoadingContainer}>
+                        <Text style={styles.Loading}>
+                            Loading...
+                        </Text>
+                    </View>
+                    :
+                    <View style={styles.cardsContainer}>
+                        <FlatList
+                            style={styles.list}
+                            data={data}
+                            renderItem={({ item }) => <NewspaperCard data={item} navigation={navigation} />}
+                            kyExtractor={item => item.id}
+                        />
+                    </View>
+            }
 
             {/* <ScrollView style={styles.cardsContainer}>
                 {

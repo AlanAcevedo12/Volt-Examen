@@ -2,7 +2,6 @@ import { Button, Text, View } from "react-native";
 import { styles } from "./NewspaperCardStyles";
 
 export default function NewspaperCard({ data, navigation }) {
-    // console.log(data)
     return (
         <View style={styles.cardContainer}>
             <View style={styles.textContainer}>

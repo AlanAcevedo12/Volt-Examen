@@ -83,7 +83,25 @@ const styles = StyleSheet.create({
         fontWeight: "bold",
         color: "#E5E8E8",
         textAlign: "center",
-    }
+    },
+    Loading: {
+        fontSize: 30,
+        fontFamily: "Montserrat-VariableFont_wght",
+        fontWeight: "bold",
+        color: "#D6DBDF",
+    },
+    LoadingContainer: {
+        marginTop: "10%",
+        backgroundColor: "#2E4053",
+        width: "95%",
+        height: "50%",
+        display: "flex",
+        flexDirection: "column",
+        borderRadius: 15,
+        overflow: "hidden",
+        alignItems: "center",
+        justifyContent: "center",
+    },
 })
 
 export { styles };

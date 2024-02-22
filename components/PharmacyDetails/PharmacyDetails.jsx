@@ -1,9 +1,11 @@
 import { ScrollView, Text, View } from "react-native";
 import { styles } from "./PharmacyDetailsStyles";
+import { useState } from "react";
 
 
-export default function PharmacyDetails({ route }) {
+export default function PharmacyDetails({ route, navigation }) {
     const { data } = route.params;
+    const [isSelected, setIsSelected] = useState(false);
 
     return (
         <View style={styles.DetailsContainer}>
@@ -12,25 +14,31 @@ export default function PharmacyDetails({ route }) {
                     Pharmacy Details
                 </Text>
             </View>
-
-            <ScrollView style={styles.cardsContainer}>
-                <View style={styles.MainTitleContainers}>
-                    <Text style={styles.MainTitle}>
-                        Title: {data.title}
-                    </Text>
+            <View style={styles.infoContainer}>
+                <Text style={styles.DataTitle}>
+                    Title: {data.title}
+                </Text>
+                <Text style={styles.DataText}>
+                    Publisher: {data.publisher}
+                </Text>
+                <Text style={styles.DataText}>
+                    ISSN: {data.ISSN}
+                </Text>
+                <Text style={styles.DataText}>
+                    Type: {data["issn-type"][0].type.toUpperCase()}
+                </Text>
+                <View style={styles.buttonContainer}>
+                    <View
+                        style={isSelected ? styles.buttonSelected : styles.button}
+                        onTouchEnd={() => { navigation.navigate('PharmacyScreen'); setIsSelected(false) }}
+                        onTouchStart={() => setIsSelected(true)}
+                    >
+                        <Text style={isSelected ? styles.buttonTextSelected : styles.buttonText}>
+                            Return
+                        </Text>
+                    </View>
                 </View>
-                <View style={styles.MainTitleContainers}>
-                    <Text style={styles.newspaperTitle}>
-                        Publisher: {data.publisher}
-                    </Text>
-                    <Text style={styles.newspaperTitle}>
-                        ISSN: {data.ISSN}
-                    </Text>
-                    <Text style={styles.newspaperTitle}>
-                        Type: {data["issn-type"].type}
-                    </Text>
-                </View>
-            </ScrollView>
+            </View>
         </View>
     )
 }

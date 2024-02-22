@@ -1,4 +1,4 @@
-import { Button, Image, Text, View } from "react-native";
+import { Alert, Button, Image, Text, View } from "react-native";
 import { styles } from "./HomeStyles";
 import {
     GoogleSignin,
@@ -12,70 +12,92 @@ const ANDROID_CLIENT_ID = "24596831165-k6cm5tbni7ttuvrcl2pb3h4kf5oa2hep.apps.goo
 
 export default function Home({ navigation }) {
     const [user, setUser] = useState();
-    const [token, setToken] = useState();
+    const [token, setToken] = useState();   //El token se debe usar en caso de querer guardar el usuario en una DB
 
-    useEffect(() => {
-        console.log(user)
-    }, [user])
+    const [isSelected, setIsSelected] = useState(false);
 
     async function LogInGoogle() {
-        GoogleSignin.configure({
-            androidClientId: ANDROID_CLIENT_ID,
-        });
-
-        await GoogleSignin.hasPlayServices();
-        const userInfo = await GoogleSignin.signIn();
-        const { accessToken } = await GoogleSignin.getTokens();
-        const { user } = userInfo;
-        setUser(user);
-        setToken(accessToken);
+        try{
+            GoogleSignin.configure({
+                androidClientId: ANDROID_CLIENT_ID,
+            });
+    
+            await GoogleSignin.hasPlayServices();
+            const userInfo = await GoogleSignin.signIn();
+            const { accessToken } = await GoogleSignin.getTokens();
+            const { user } = userInfo;
+            setUser(user);
+            setToken(accessToken);
+        }catch(e){
+            Alert.alert("Error", "Something has happened while loginIn.");
+            console.error("Error",e);
+        }
     }
 
     async function LogOutGoogle() {
         try {
             await GoogleSignin.signOut();
-            setUser()
+            setUser();
+            Alert.alert("Information", "Loged out succesfully");
         } catch (error) {
+            Alert.alert("Error", "Something has happened while loged out.");
             console.log('Google Sign-Out Error: ', error);
         }
     }
 
     return (
         <View style={styles.HomeContainer}>
+            <View style={styles.MainTitleContainers}>
+                <Text style={styles.MainTitle}>
+                    Home
+                </Text>
+            </View>
             {
                 !user ?
-                    <View style={styles.MainTitleContainers}>
-                        <Text style={styles.MainTitle}>
-                            Home
-                        </Text>
+                    <View style={styles.MainContainers}>
                         <Text style={styles.text}>
                             Welcome
                         </Text>
                         <GoogleSigninButton
-                        style={styles.googleButton}
+                            style={styles.googleButton}
                             onPress={() => { LogInGoogle() }}
                         />
                     </View>
                     :
-                    <View>
-                        <Text style={styles.MainTitle}>
-                            Bienvenido: {user.name}
+                    <View style={styles.MainContainers}>
+                        {user.photo &&
+                            <View style={styles.imageContainer}>
+
+                                <Image source={{ uri: user.photo }}
+                                    style={styles.image}
+                                />
+                            </View>
+                        }
+                        <Text style={styles.text}>
+                            ¡Welcome {user.name}!
                         </Text>
-                        <Text style={styles.MainTitle}>
-                            Email: {user.email}
-                        </Text>
-                        <Text style={styles.MainTitle}>
-                            UserID: {user.id}
-                        </Text>
-                        <View style={styles.imageContainer}>
-                            <Image source={{ uri: user.photo }}
-                                style={styles.image}
-                            />
+                        <View style={styles.dataContainer}>
+                            <Text style={styles.dataText}>
+                                User information
+                            </Text>
+                            <Text style={styles.dataText}>
+                                Email: {user.email}
+                            </Text>
+                            <Text style={styles.dataText}>
+                                Id: {user.id}
+                            </Text>
                         </View>
-                        <Button
-                            title="Salir"
-                            onPress={() => { LogOutGoogle() }}
-                        />
+                        <View style={styles.buttonContainer}>
+                            <View
+                                style={isSelected ? styles.buttonSelected : styles.button}
+                                onTouchEnd={() => { LogOutGoogle(); setIsSelected(false) }}
+                                onTouchStart={() => setIsSelected(true)}
+                            >
+                                <Text style={isSelected ? styles.buttonTextSelected : styles.buttonText}>
+                                    Log out
+                                </Text>
+                            </View>
+                        </View>
                     </View>
 
             }
