@@ -2,7 +2,7 @@ import { Button, Text, View } from "react-native";
 import { styles } from "./CryptoCardStyles";
 
 export default function CryptoCard({ data, navigation }) {
-    console.log(data)
+    // console.log(data)
     return (
         <View style={styles.cardContainer}>
             <View style={styles.titleContainer}>
