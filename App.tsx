@@ -3,10 +3,10 @@ import Home from './Activities/Home/Home';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Dog from './Activities/Apis/Dog/Dog';
-import Newspaper from './Activities/Apis/Newspapers/Newspaper';
 import MaterialCommunityIcons from 'react-native-vector-icons/FontAwesome5';
 import Pharmacy from './Activities/Apis/Pharmacy/Pharmacy';
 import Crypto from './Activities/Apis/Crypto/Crypto';
+import StackNewspaper from './Activities/Apis/Newspapers/Newspaper';
 
 const Tab = createBottomTabNavigator();
 
@@ -25,8 +25,8 @@ function App(): React.JSX.Element {
           }}
         />
         <Tab.Screen
-          name="Newspaper"
-          component={Newspaper}
+          name="StackNewspaper"
+          component={StackNewspaper}
           options={{
             headerShown: false,
             tabBarIcon: ({ color, size }) => (
