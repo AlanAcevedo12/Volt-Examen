@@ -13,7 +13,11 @@ const Tab = createBottomTabNavigator();
 function App(): React.JSX.Element {
   return (
     <NavigationContainer>
-      <Tab.Navigator initialRouteName="Home">
+      <Tab.Navigator initialRouteName="Home"
+        screenOptions={{
+          tabBarActiveBackgroundColor: "#EAECEE",
+          tabBarActiveTintColor: "#5D6D7E",
+        }}>
         <Tab.Screen
           name="Dog"
           component={Dog}

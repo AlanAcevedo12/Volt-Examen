@@ -17,9 +17,11 @@ const styles = StyleSheet.create({
     },
     MainContainers: {
         width: "100%",
+        height: "80%",
         display: "flex",
         flexDirection: "column",
-        alignItems: "center"
+        alignItems: "center",
+        justifyContent: "center"
     },
     MainTitle: {
         fontSize: 30,
@@ -32,6 +34,13 @@ const styles = StyleSheet.create({
     text: {
         marginTop: "10%",
         fontSize: 20,
+        fontFamily: "Montserrat-VariableFont_wght",
+        fontWeight: "bold",
+        color: "#2E4053",
+    },
+    textBig: {
+        marginTop: "10%",
+        fontSize: 25,
         fontFamily: "Montserrat-VariableFont_wght",
         fontWeight: "bold",
         color: "#2E4053",

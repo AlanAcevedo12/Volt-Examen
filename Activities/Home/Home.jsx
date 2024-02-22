@@ -55,8 +55,11 @@ export default function Home({ navigation }) {
             {
                 !user ?
                     <View style={styles.MainContainers}>
-                        <Text style={styles.text}>
+                        <Text style={styles.textBig}>
                             Welcome
+                        </Text>
+                        <Text style={styles.text}>
+                            LogIn with Google Account
                         </Text>
                         <GoogleSigninButton
                             style={styles.googleButton}
