@@ -1,4 +1,4 @@
-import { Button, Text, View } from "react-native";
+import { Button, Image, Text, View } from "react-native";
 import { styles } from "./HomeStyles";
 import {
     GoogleSignin,
@@ -48,7 +48,11 @@ export default function Home({ navigation }) {
                         <Text style={styles.MainTitle}>
                             Home
                         </Text>
+                        <Text style={styles.text}>
+                            Welcome
+                        </Text>
                         <GoogleSigninButton
+                        style={styles.googleButton}
                             onPress={() => { LogInGoogle() }}
                         />
                     </View>
@@ -63,6 +67,11 @@ export default function Home({ navigation }) {
                         <Text style={styles.MainTitle}>
                             UserID: {user.id}
                         </Text>
+                        <View style={styles.imageContainer}>
+                            <Image source={{ uri: user.photo }}
+                                style={styles.image}
+                            />
+                        </View>
                         <Button
                             title="Salir"
                             onPress={() => { LogOutGoogle() }}
