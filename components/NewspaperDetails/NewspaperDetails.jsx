@@ -25,7 +25,6 @@ export default function NewspaperDetails({ navigation, route }) {
                 setIssues(data.issues.map((d, k) => { return ({ ...d, id: k }) }));
                 setLoading(false);
             }
-            console.log(data);
         } catch (e) {
             console.error(e);
         }

@@ -33,7 +33,23 @@ const styles = StyleSheet.create({
         flexDirection: "row",
         alignItems: "center",
         justifyContent: "space-between"
-    }
+    },
+    Loading: {
+        fontSize:10,
+        fontFamily: "Montserrat-VariableFont_wght",
+        fontWeight: "bold",
+        color: "#2E4053",
+    },
+    LoadingContainer: {
+        width: "100%",
+        height: 50,
+        display: "flex",
+        flexDirection: "row",
+        marginBottom: 1,
+        backgroundColor: "#CCD1D1",
+        alignItems: "center",
+        justifyContent: "center",
+    },
 })
 
 export { styles };

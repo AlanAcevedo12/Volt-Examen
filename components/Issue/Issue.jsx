@@ -27,25 +27,31 @@ export default function Issue({ url, navigation }) {
     return (
         <View style={styles.cardContainer}>
             {
-                !loading &&
-                <View style={styles.textContainer}>
-                    <View style={styles.column}>
-                        <Text style={styles.IssueTitle}>
-                            Title: {data.title.name}
+                loading ?
+                    <View style={styles.LoadingContainer}>
+                        <Text style={styles.Loading}>
+                            Loading...
                         </Text>
                     </View>
-                    <View style={styles.column}>
-                        <Text style={styles.IssueTitle}>
-                            Edition: {data.edition}
-                        </Text>
-                        <Text style={styles.IssueTitle}>
-                            N°: {data.number}
-                        </Text>
-                        <Text style={styles.IssueTitle}>
-                            {data.date_issued}
-                        </Text>
+                    :
+                    <View style={styles.textContainer}>
+                        <View style={styles.column}>
+                            <Text style={styles.IssueTitle}>
+                                Title: {data.title.name}
+                            </Text>
+                        </View>
+                        <View style={styles.column}>
+                            <Text style={styles.IssueTitle}>
+                                Edition: {data.edition}
+                            </Text>
+                            <Text style={styles.IssueTitle}>
+                                N°: {data.number}
+                            </Text>
+                            <Text style={styles.IssueTitle}>
+                                {data.date_issued}
+                            </Text>
+                        </View>
                     </View>
-                </View>
             }
         </View>
     )
