@@ -11,7 +11,7 @@ export default function PharmacyDetails({ route, navigation }) {
         <View style={styles.DetailsContainer}>
             <View style={styles.MainTitleContainers}>
                 <Text style={styles.MainTitle}>
-                    Pharmacy Details
+                    PHARMACY DETAILS
                 </Text>
             </View>
             <View style={styles.infoContainer}>

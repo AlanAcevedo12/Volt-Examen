@@ -36,7 +36,8 @@ const styles = StyleSheet.create({
         borderRadius: 15,
         marginTop: "10%",
         width: "90%",
-        paddingTop: 15
+        paddingTop: 15,
+        alignItems: "center", 
     },
     DataTitle: {
         fontSize: 18,
@@ -120,6 +121,16 @@ const styles = StyleSheet.create({
         alignItems: "center",
         justifyContent: "center",
     },
+    textsContainer: {
+        // backgroundColor: "green",
+    },
+    IssuesContainer:{
+        backgroundColor: "#5D6D7E",
+        width: "90%",
+        height: "25%",
+        borderRadius: 15,
+        overflow: "hidden"
+    }
 })
 
 export { styles };
